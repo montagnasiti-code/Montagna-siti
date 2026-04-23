@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://montagnaWeb.it/sitemap.xml
+
+# Blocca file non necessari
+Disallow: /assets/Other compoents/

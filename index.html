@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ═══ SEO ═══════════════════════════════════════════════ -->
+  <title>Montagna Web — Siti Web Professionali in Valtellina | Da €150</title>
+  <meta name="description" content="Siti web moderni per attività locali in Valtellina e Lombardia. €150 una tantum + €60/anno tutto incluso. Veloce, mobile-first, dominio, hosting e supporto." />
+  <meta name="keywords" content="siti web Valtellina, realizzazione siti web Sondrio, web agency Valtellina, web design Lombardia, sito web hotel Valtellina, sito web ristorante Valtellina, crea sito web Valtellina, web developer Valtellina, siti web professionali montagna" />
+  <meta name="author" content="Montagna Web" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://montagnaWeb.it/" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://montagnaWeb.it/" />
+  <meta property="og:title"       content="Montagna Web — Siti Web in Valtellina da €150" />
+  <meta property="og:description" content="€150 per la creazione + €60/anno. Veloce, moderno, mobile-first. Servizio locale in Valtellina." />
+  <meta property="og:locale"      content="it_IT" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Montagna Web — Siti Web Professionali in Valtellina" />
+  <meta name="twitter:description" content="€150 per la creazione + €60/anno. Veloce, mobile-first, supporto incluso." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- JSON-LD: Local Business -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Montagna Web","description":"Realizzazione siti web professionali per attività locali in Valtellina","url":"https://montagnaWeb.it","telephone":"+393520567569","email":"montagna.siti@gmail.com","priceRange":"€€","address":{"@type":"PostalAddress","addressRegion":"Lombardia","addressCountry":"IT"},"areaServed":[{"@type":"Place","name":"Valtellina"},{"@type":"Place","name":"Sondrio"},{"@type":"Place","name":"Lombardia"}]}</script>
+  <!-- JSON-LD: FAQ -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quanto costa un sito web in Valtellina?","acceptedAnswer":{"@type":"Answer","text":"Con Montagna Web paghi €150 una tantum per la creazione + €60/anno per dominio, hosting e supporto."}},{"@type":"Question","name":"Ho già un dominio, posso mantenerlo?","acceptedAnswer":{"@type":"Answer","text":"Sì. Gestisco il trasferimento o il puntamento DNS. Tu non devi fare nulla di tecnico."}},{"@type":"Question","name":"Cosa sono i 2 aggiornamenti gratuiti?","acceptedAnswer":{"@type":"Answer","text":"Ogni anno: 2 consulenze gratuite + 2 modifiche al sito incluse nel canone."}}]}</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:          #faf4ec;        /* slightly lighter than before */
+      --white:       #ffffff;
+      --brown:       #b5651d;
+      --brown-dark:  #8b4513;
+      --brown-light: rgba(181,101,29,.10);
+      --border:      rgba(181,101,29,.17);
+      --text:        #3d2b1f;
+      --muted:       #8b6f5e;
+      --green:       #5a9e6f;
+      --red:         #c0392b;
+      --radius:      1rem;
+      --grid:        rgba(181,101,29,.07);  /* slightly less opaque */
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+    .section    { padding: 5rem 0; }
+
+    /* ── GRID TEXTURE ── */
+    .grid-bg { background: var(--white); position: relative; }
+    .grid-bg::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 36px 36px;
+    }
+    .grid-bg .container { position: relative; z-index: 1; }
+
+    /* ── TYPOGRAPHY ── */
+    h1 { font-family: 'Baloo 2', sans-serif; font-size: clamp(1.9rem,5vw,3.2rem); font-weight: 800; line-height: 1.12; }
+    h2 { font-family: 'Baloo 2', sans-serif; font-size: clamp(1.4rem,3vw,2.2rem); font-weight: 700; }
+    h3 { font-size: 1.05rem; font-weight: 700; }
+
+    .tag {
+      display: inline-flex; align-items: center;
+      font-size: .73rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase;
+      background: var(--brown-light); border: 1px solid var(--border);
+      color: var(--brown); padding: .25rem .85rem; border-radius: 999px;
+    }
+
+    /* ── NAV (slightly darker than bg) ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(210,185,158,.97);   /* darker than --bg for visible separation */
+      backdrop-filter: blur(12px);
+      border-bottom: 1.5px solid rgba(181,101,29,.22);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 4rem;
+    }
+    .nav-logo {
+      font-family: 'Baloo 2', sans-serif; font-size: 1.15rem; font-weight: 800;
+      color: var(--brown); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: .9rem; font-weight: 600; color: var(--muted); text-decoration: none; transition: color .15s; }
+    .nav-links a:hover { color: var(--brown); }
+    .nav-cta { display: flex; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: .25rem; }
+    .hamburger span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; display: block; }
+    #nav-chk { display: none; }
+
+    @media (max-width: 700px) {
+      .hamburger { display: flex; }
+      .nav-cta { display: none; }
+      .nav-links {
+        display: none; flex-direction: column; gap: 0;
+        position: absolute; top: 4rem; left: 0; right: 0;
+        background: rgba(210,185,158,.98); border-bottom: 1px solid var(--border);
+        padding: 1rem 1.5rem; z-index: 99;
+      }
+      .nav-links a { padding: .6rem 0; border-bottom: 1px solid var(--border); display: block; }
+      #nav-chk:checked ~ .nav-links { display: flex; }
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .75rem 1.8rem; border-radius: 999px;
+      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: .95rem;
+      cursor: pointer; transition: transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s;
+      border: none; text-decoration: none;
+    }
+    .btn:hover { transform: translateY(-3px); }
+    .btn-primary { background: var(--brown); color: #fff; box-shadow: 0 4px 0 var(--brown-dark); }
+    .btn-primary:hover { box-shadow: 0 7px 0 var(--brown-dark); }
+    .btn-secondary { background: transparent; border: 2px solid var(--border); color: var(--text); }
+    .btn-secondary:hover { border-color: var(--brown); color: var(--brown); }
+
+    /* ── HERO ── */
+    .hero { padding: 4rem 0 0; position: relative; overflow: hidden; }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+      padding-bottom: 2rem;
+    }
+    @media (max-width: 700px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-right  { order: -1; text-align: center; }
+    }
+
+    .hero-left { display: flex; flex-direction: column; gap: 1.5rem; }
+    .hero-headline h1 { margin-bottom: .6rem; }
+    .hero-headline h1 em { color: var(--brown); font-style: normal; }
+    .hero-headline p { color: var(--muted); font-size: 1.05rem; max-width: 440px; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-right img { max-width: 100%; width: 400px; mix-blend-mode: multiply; }
+
+    /*
+    ══════════════════════════════════════════════
+    POSIZIONE DI JACK — modifica questi 4 valori:
+      .hero-jack-row  height: 220px   →  spazio verticale riservato
+      .hero-jack      bottom: -50px   →  negativo = scende; meno negativo = sale
+      .hero-jack      width: 170px    →  dimensione immagine
+      #problema       padding-top     →  deve assorbire la sovrapposizione
+    ══════════════════════════════════════════════
+    */
+    .hero-jack-row {
+      display: flex; justify-content: center;
+      position: relative;
+      height: 220px;          /* ← REGOLA ALTEZZA RIGA */
+    }
+    .hero-jack {
+      width: 170px;           /* ← REGOLA DIMENSIONE */
+      position: absolute;
+      bottom: -50px;          /* ← REGOLA POSIZIONE VERTICALE */
+      z-index: 10;
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,.10));
+      transition: filter .3s;
+    }
+    #problema {
+      padding-top: 90px;      /* ← REGOLA PADDING (≈ row-height − |bottom|) */
+      padding-bottom: 5rem;
+    }
+
+    /* ── PROBLEMA ── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+    @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+
+    .prob-card, .sol-card { padding: 2rem; border-radius: var(--radius); border: 2px solid; }
+    .prob-card { background: #fff8f8; border-color: rgba(192,57,43,.2); }
+    .sol-card  { background: #f4fff8; border-color: rgba(90,158,111,.2); }
+    .prob-card h3 { color: var(--red);   margin-bottom: .75rem; }
+    .sol-card  h3 { color: var(--green); margin-bottom: .75rem; }
+    .prob-card p, .sol-card p { color: var(--muted); font-size: .92rem; line-height: 1.7; margin-bottom: .9rem; }
+    .check-list { display: flex; flex-direction: column; gap: .65rem; list-style: none; }
+    .check-list li { display: flex; gap: .75rem; color: var(--muted); font-size: .9rem; align-items: flex-start; }
+    .check-list li::before { content: attr(data-icon); flex-shrink: 0; margin-top: .05rem; }
+
+    /* ── STEPS — 5 in a row desktop, carousel on mobile ── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+    }
+    .step {
+      background: var(--white); border: 2px solid var(--border);
+      border-radius: var(--radius); padding: 1.35rem;
+      transition: border-color .25s, transform .25s, box-shadow .25s;
+    }
+    .step:hover { border-color: var(--brown); transform: translateY(-4px); box-shadow: 0 8px 24px rgba(181,101,29,.12); }
+    .step-num {
+      font-family: 'Baloo 2', sans-serif; font-size: 2rem; font-weight: 800;
+      color: var(--brown); line-height: 1; margin-bottom: .5rem;
+    }
+    .step h3 { margin-bottom: .4rem; font-size: .97rem; }
+    .step p  { color: var(--muted); font-size: .85rem; }
+    .step-price {
+      display: inline-flex; align-items: center;
+      margin-top: .6rem;
+      background: var(--brown-light); border: 1px solid var(--border);
+      color: var(--brown); font-weight: 800; font-size: .85rem;
+      padding: .18rem .7rem; border-radius: 999px;
+    }
+
+    /* Carousel on ≤900px */
+    @media (max-width: 900px) {
+      .steps {
+        grid-template-columns: unset;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+        padding-bottom: 1.25rem;
+        scrollbar-width: none;
+        cursor: grab;
+      }
+      .steps:active { cursor: grabbing; }
+      .steps::-webkit-scrollbar { display: none; }
+      .step {
+        scroll-snap-align: start;
+        min-width: min(72vw, 250px);
+        flex-shrink: 0;
+        padding: 1.5rem;
+      }
+    }
+
+    /* ── FAQ ── */
+    .faq-list { display: flex; flex-direction: column; gap: 1rem; max-width: 680px; margin: 0 auto; }
+    details {
+      background: var(--white); border: 2px solid var(--border);
+      border-radius: var(--radius); overflow: hidden; transition: border-color .25s, box-shadow .25s;
+    }
+    details[open] { border-color: var(--brown); box-shadow: 0 4px 20px rgba(181,101,29,.08); }
+    summary {
+      padding: 1.1rem 1.25rem; cursor: pointer; font-weight: 700; color: var(--text);
+      display: flex; justify-content: space-between; align-items: center;
+      list-style: none; user-select: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; color: var(--brown); font-size: 1.3rem; transition: transform .25s; }
+    details[open] summary::after { transform: rotate(45deg); }
+    .faq-body { padding: 0 1.25rem 1.25rem; color: var(--muted); font-size: .95rem; }
+
+    /* ── S-HEAD ── */
+    .s-head { text-align: center; margin-bottom: 3rem; }
+    .s-head .tag { margin-bottom: .75rem; }
+    .s-head h2 { margin-bottom: .5rem; }
+    .s-head p  { color: var(--muted); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 2px solid var(--border); background: var(--bg);
+      padding: 3rem 0 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr 1fr;
+      gap: 2rem; align-items: center;
+      text-align: center;
+    }
+    @media (max-width: 700px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-face-col { order: -1; }
+    }
+
+    .foot-logo {
+      font-family: 'Baloo 2', sans-serif; font-size: 1.15rem; font-weight: 800;
+      color: var(--brown); margin-bottom: .5rem;
+    }
+    .footer-sub { color: var(--muted); font-size: .83rem; margin-bottom: .5rem; }
+    .foot-contacts {
+      display: flex; flex-direction: column; gap: .35rem;
+      align-items: center; margin-bottom: .75rem;
+    }
+    .foot-contacts a {
+      display: inline-flex; align-items: center; gap: .3rem;
+      color: var(--muted); text-decoration: none; font-size: .85rem; font-weight: 600;
+      transition: color .15s;
+    }
+    .foot-contacts a:hover { color: var(--brown); }
+    .footer-copy { font-size: .75rem; color: var(--muted); }
+
+    .footer-wa-btn {
+      display: inline-flex; align-items: center; gap: .55rem;
+      background: var(--brown); color: #fff;
+      padding: .65rem 1.3rem; border-radius: 999px;
+      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: .9rem;
+      text-decoration: none;
+      box-shadow: 0 3px 0 var(--brown-dark);
+      transition: transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s;
+    }
+    .footer-wa-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 0 var(--brown-dark); color: #fff; }
+    .footer-wa-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+    .footer-face {
+      width: 90px; height: 90px;
+      object-fit: cover;
+      border-radius: 0;           /* no circle, show as-is */
+      mix-blend-mode: multiply;
+    }
+
+    /* ── WHATSAPP FLOAT ── */
+    .wa {
+      position: fixed; bottom: 2rem; left: 2rem; z-index: 300;
+      background: var(--brown); color: #fff;
+      width: 54px; height: 54px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(181,101,29,.4);
+      transition: transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s;
+    }
+    .wa:hover { transform: scale(1.12); box-shadow: 0 6px 24px rgba(181,101,29,.5); }
+    .wa svg { width: 28px; height: 28px; }
+
+    /* ── COOKIE BANNER ── */
+    #cookie-banner {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 500;
+      background: var(--white); border-top: 2px solid var(--border);
+      padding: 1rem 1.5rem;
+      box-shadow: 0 -4px 20px rgba(0,0,0,.08);
+      animation: slideUp .35s ease;
+    }
+    .cookie-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; flex-wrap: wrap;
+    }
+    .cookie-inner p { font-size: .9rem; color: var(--muted); margin: 0; }
+    .cookie-btns { display: flex; gap: .5rem; flex-shrink: 0; }
+    .btn-sm { padding: .45rem 1.1rem !important; font-size: .85rem !important; }
+
+    /* ── SCROLL REVEAL ── */
+    [data-reveal] {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    [data-reveal].revealed { opacity: 1; transform: translateY(0); }
+    [data-reveal][data-delay="1"] { transition-delay: .10s; }
+    [data-reveal][data-delay="2"] { transition-delay: .20s; }
+    [data-reveal][data-delay="3"] { transition-delay: .30s; }
+    [data-reveal][data-delay="4"] { transition-delay: .40s; }
+    [data-reveal][data-delay="5"] { transition-delay: .50s; }
+
+    /* ── HERO ANIMATIONS ── */
+    @keyframes heroIn {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-left  { animation: heroIn .9s cubic-bezier(.22,1,.36,1) both; }
+    .hero-right { animation: heroIn .9s cubic-bezier(.22,1,.36,1) .18s both; }
+    .hero-jack  { animation: heroIn .9s cubic-bezier(.22,1,.36,1) .35s both; }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ══════════════════════════════════════════════════════
+       FLOW / CHAT — MODAL OVERLAY
+    ══════════════════════════════════════════════════════ */
+    #flow-page {
+      display: none;
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(40,20,10,.55);
+      backdrop-filter: blur(5px);
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    #flow-page.open { display: flex; animation: bgFadeIn .25s ease; }
+    @keyframes bgFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* Chat card */
+    .chat-card {
+      background: var(--white);
+      border-radius: 1.5rem;
+      width: 100%; max-width: 540px;
+      max-height: 90dvh;
+      display: flex; flex-direction: column;
+      box-shadow: 0 28px 80px rgba(0,0,0,.22);
+      overflow: hidden;
+      animation: cardIn .38s cubic-bezier(.34,1.36,.64,1);
+    }
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(32px) scale(.96); }
+      to   { opacity: 1; transform: translateY(0)   scale(1); }
+    }
+
+    /* Card nav */
+    .flow-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .85rem 1.25rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .flow-back {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: var(--brown-light); border: 1.5px solid var(--border);
+      border-radius: 999px; padding: .32rem .9rem .32rem .6rem;
+      color: var(--brown); font-family: 'Nunito', sans-serif;
+      font-size: .83rem; font-weight: 700; cursor: pointer;
+      transition: background .15s, transform .15s;
+    }
+    .flow-back:hover { background: rgba(181,101,29,.2); transform: translateX(-2px); }
+    .flow-back svg  { width: 15px; height: 15px; flex-shrink: 0; }
+    .flow-logo {
+      font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 1.05rem;
+      color: var(--brown); background: none; border: none; cursor: pointer;
+      transition: opacity .15s;
+    }
+    .flow-logo:hover { opacity: .7; }
+
+    /* Messages area */
+    .chat-messages {
+      flex: 1; overflow-y: auto; padding: 1.25rem;
+      display: flex; flex-direction: column; gap: .75rem;
+      scroll-behavior: smooth;
+    }
+    .chat-msg {
+      display: flex; gap: .65rem; align-items: flex-end; max-width: 90%;
+    }
+    .chat-msg.jack { align-self: flex-start; }
+    .chat-msg.user { align-self: flex-end; flex-direction: row-reverse; }
+
+    /* Jack avatar — larger, no circle, shown as-is */
+    .chat-avatar {
+      width: 52px; height: 52px;
+      flex-shrink: 0; object-fit: contain;
+      border-radius: 0;       /* no circle */
+      mix-blend-mode: multiply;
+    }
+
+    .chat-bubble { padding: .8rem 1.05rem; border-radius: 1rem; font-size: .96rem; font-weight: 600; line-height: 1.65; }
+    .jack-bubble {
+      background: #ffe8cc; border: 2px solid rgba(181,101,29,.2);
+      border-radius: .25rem 1rem 1rem 1rem; color: var(--text);
+    }
+    .jack-bubble strong { color: var(--brown); }
+    .jack-bubble .pill {
+      display: inline-block; background: var(--brown); color: #fff;
+      padding: .05rem .55rem; border-radius: 999px; font-size: .9em; font-weight: 800;
+    }
+    .user-bubble {
+      background: var(--brown); color: #fff;
+      border-radius: 1rem 1rem .25rem 1rem;
+    }
+
+    /* Typing indicator */
+    .chat-typing {
+      display: flex !important; gap: 5px; align-items: center; padding: .85rem 1.1rem;
+    }
+    .chat-typing span {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--brown); opacity: .4;
+      animation: typePulse 1.4s infinite ease-in-out;
+    }
+    .chat-typing span:nth-child(2) { animation-delay: .2s; }
+    .chat-typing span:nth-child(3) { animation-delay: .4s; }
+    @keyframes typePulse {
+      0%,60%,100% { opacity:.4; transform:scale(1); }
+      30%          { opacity:1;  transform:scale(1.25); }
+    }
+
+    /* Options grid — indented under Jack bubble */
+    .chat-opts-wrap { margin-left: calc(52px + .65rem); margin-top: .25rem; }
+    .chat-opts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .45rem; }
+    @media (max-width: 400px) { .chat-opts-grid { grid-template-columns: 1fr; } }
+    .chat-opt {
+      padding: .65rem .85rem; border-radius: .7rem;
+      border: 2px solid var(--border); background: var(--white);
+      cursor: pointer; font-family: 'Nunito', sans-serif;
+      font-weight: 700; font-size: .86rem; color: var(--text);
+      text-align: center; transition: border-color .15s, background .15s, color .15s, transform .15s;
+    }
+    .chat-opt:hover { transform: translateY(-2px); }
+    .chat-opt.sel, .chat-opt:hover { border-color: var(--brown); background: var(--brown-light); color: var(--brown); }
+    .chat-opt.full-col { grid-column: 1/-1; }
+
+    /* Input area */
+    .chat-input-area {
+      flex-shrink: 0; padding: .75rem 1.25rem 1rem;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .chat-input-row {
+      display: flex; align-items: center; gap: .6rem;
+      justify-content: flex-end;
+    }
+    .chat-text-input {
+      flex: 1; padding: .68rem 1rem;
+      border: 2px solid var(--border); border-radius: 2rem;
+      font-family: 'Nunito', sans-serif; font-size: .93rem; color: var(--text);
+      background: var(--white); transition: border-color .15s;
+    }
+    .chat-text-input:focus { outline: none; border-color: var(--brown); }
+    .chat-text-input::placeholder { color: var(--muted); }
+    .chat-contact-inputs { display: flex; flex-direction: column; gap: .5rem; margin-bottom: .5rem; }
+
+    .chat-send-btn {
+      padding: .68rem 1.35rem; border-radius: 2rem;
+      background: var(--brown); color: #fff; border: none;
+      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: .88rem;
+      cursor: pointer; white-space: nowrap;
+      box-shadow: 0 3px 0 var(--brown-dark);
+      transition: transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s;
+    }
+    .chat-send-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 0 var(--brown-dark); }
+    .chat-send-btn:disabled { opacity: .4; cursor: default; transform: none; }
+    .chat-send-btn.back-style {
+      background: transparent; color: var(--brown);
+      border: 2px solid var(--border); box-shadow: none;
+    }
+    .chat-send-btn.back-style:hover { border-color: var(--brown); box-shadow: none; }
+
+    /* Done card in chat */
+    .chat-done {
+      text-align: center; display: flex; flex-direction: column;
+      align-items: center; gap: .65rem; padding: .75rem 0;
+    }
+    .chat-done .done-icon { font-size: 2.4rem; }
+    .chat-done h3 { font-family: 'Baloo 2', sans-serif; font-size: 1.25rem; color: var(--text); }
+    .chat-done p { color: var(--muted); font-size: .93rem; }
+  </style>
+</head>
+<body>
+
+<!-- ══ COOKIE BANNER ═══════════════════════════════════════ -->
+<div id="cookie-banner">
+  <div class="cookie-inner">
+    <p>🍪 Usiamo cookie tecnici per il funzionamento del sito e, con il tuo consenso, analisi anonime delle visite.</p>
+    <div class="cookie-btns">
+      <button class="btn btn-primary btn-sm" onclick="acceptCookies()">Accetta</button>
+      <button class="btn btn-secondary btn-sm" onclick="rejectCookies()">Solo necessari</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MAIN PAGE ═══════════════════════════════════════════ -->
+<div id="main-page">
+
+  <!-- NAV -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">montagna.web</a>
+      <button class="hamburger" aria-label="Menu" onclick="document.getElementById('nav-chk').click()">
+        <span></span><span></span><span></span>
+      </button>
+      <input type="checkbox" id="nav-chk" />
+      <ul class="nav-links">
+        <li><a href="#problema" onclick="document.getElementById('nav-chk').checked=false">Il problema</a></li>
+        <li><a href="#come"     onclick="document.getElementById('nav-chk').checked=false">Come funziona</a></li>
+        <li><a href="#faq"      onclick="document.getElementById('nav-chk').checked=false">FAQ</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="#" onclick="openFlow();return false;">Iniziamo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Introduzione">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-left">
+          <div class="hero-headline">
+            <h1>Smettila di strapagare<br>siti che <em>urlano 2010.</em></h1>
+            <p>Una presenza online moderna per la tua attività in Valtellina. A meno del costo di un panino al mese.</p>
+          </div>
+          <div class="hero-btns">
+            <a class="btn btn-primary" href="#" onclick="openFlow();return false;">Iniziamo →</a>
+            <a class="btn btn-secondary" href="#problema">Scopri di più</a>
+          </div>
+        </div>
+        <div class="hero-right">
+          <img src="assets/desktop_phone.png" alt="Sito web moderno su desktop e mobile" loading="eager" />
+        </div>
+      </div>
+      <div class="hero-jack-row">
+        <img src="assets/Jack.png" alt="Andrea, fondatore di Montagna Web" class="hero-jack" />
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMA / SOLUZIONE -->
+  <section class="grid-bg section" id="problema" aria-label="Il problema e la soluzione">
+    <div class="container">
+      <div class="s-head" data-reveal>
+        <span class="tag">Il problema</span>
+        <h2>Il sito vecchio ti costa più di quanto pensi</h2>
+        <p>Non è solo estetica. È fiducia persa, clienti che scappano, soldi buttati ogni anno.</p>
+      </div>
+      <div class="two-col">
+        <div class="prob-card" data-reveal data-delay="1">
+          <h3>❌ Quello che succede adesso</h3>
+          <p>Un potenziale cliente cerca la tua attività su Google, trova un sito lento con un design anni '10, non riesce a leggerlo sul telefono e chiude. Va da un concorrente. Ogni giorno, senza che tu te ne accorga.</p>
+          <ul class="check-list">
+            <li data-icon="📵">Non si vede su mobile — il 60%+ del traffico è da cellulare</li>
+            <li data-icon="🐌">Carica in 6+ secondi — Google ti penalizza, gli utenti scappano</li>
+            <li data-icon="🔒">Nessun HTTPS — il browser lo segnala come "non sicuro"</li>
+            <li data-icon="💸">Stai pagando centinaia di € l'anno per questo</li>
+            <li data-icon="👻">Nessuno aggiorna nulla da anni — il sito è abbandonato</li>
+          </ul>
+        </div>
+        <div class="sol-card" data-reveal data-delay="2">
+          <h3>✅ Come può andare invece</h3>
+          <p>Un sito pulito, veloce, che si vede bene su ogni schermo. Non serve niente di complicato — basta una presenza che ispiri fiducia al primo colpo d'occhio.</p>
+          <ul class="check-list">
+            <li data-icon="⚡">Carica in meno di 2 secondi su mobile e desktop</li>
+            <li data-icon="📱">Perfetto su ogni schermo, dal telefono al TV</li>
+            <li data-icon="🔒">HTTPS attivo, nessun avviso di sicurezza</li>
+            <li data-icon="🤝">2 aggiornamenti gratuiti all'anno inclusi</li>
+            <li data-icon="💶">60€ l'anno. Un panino al mese, non di più.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COME FUNZIONA -->
+  <section class="section" id="come" aria-label="Come funziona">
+    <div class="container">
+      <div class="s-head" data-reveal>
+        <span class="tag">Come funziona</span>
+        <h2>Semplice. Rapido. Senza burocrazia.</h2>
+        <p>Nessun contratto complicato, nessuna riunione infinita.</p>
+      </div>
+      <div class="steps">
+        <div class="step" data-reveal data-delay="1">
+          <div class="step-num">01</div>
+          <h3>Analisi gratuita</h3>
+          <p>Guardo il tuo sito attuale, capisco la tua attività e ti dico cosa migliorare — senza impegno.</p>
+        </div>
+        <div class="step" data-reveal data-delay="2">
+          <div class="step-num">02</div>
+          <h3>Preventivo chiaro</h3>
+          <p>Nessuna sorpresa. Sai già cosa comprende e quanto costa.</p>
+          <span class="step-price">Creazione: €150</span>
+        </div>
+        <div class="step" data-reveal data-delay="3">
+          <div class="step-num">03</div>
+          <h3>Sviluppo rapido</h3>
+          <p>Creo il nuovo sito in 1–2 giorni dai tuoi contenuti. Non aspetti settimane.</p>
+        </div>
+        <div class="step" data-reveal data-delay="4">
+          <div class="step-num">04</div>
+          <h3>Pubblicazione</h3>
+          <p>Gestisco tutto — dominio, hosting, go-live. Tu non fai nulla di tecnico.</p>
+        </div>
+        <div class="step" data-reveal data-delay="5">
+          <div class="step-num">05</div>
+          <h3>Supporto continuo</h3>
+          <p>Dominio, hosting DNS, 2 consulenze e 2 modifiche gratuite all'anno.</p>
+          <span class="step-price">€60/anno</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="grid-bg section" id="faq" aria-label="Domande frequenti">
+    <div class="container">
+      <div class="s-head" data-reveal>
+        <span class="tag">FAQ</span>
+        <h2>Domande frequenti</h2>
+      </div>
+      <div class="faq-list">
+        <details data-reveal data-delay="1">
+          <summary>Quanto costa in totale?</summary>
+          <div class="faq-body">€150 una tantum per la creazione + €60/anno per dominio, hosting e supporto. Nessun costo nascosto.</div>
+        </details>
+        <details data-reveal data-delay="2">
+          <summary>Ho già un dominio. Lo posso mantenere?</summary>
+          <div class="faq-body">Sì. Gestisco il trasferimento o il puntamento DNS. Tu non devi fare nulla di tecnico.</div>
+        </details>
+        <details data-reveal data-delay="3">
+          <summary>Cosa succede se voglio smettere dopo il primo anno?</summary>
+          <div class="faq-body">Nessun problema. Il sito è tuo. Ti consegno tutti i file. Zero vincoli, zero penali.</div>
+        </details>
+        <details data-reveal data-delay="4">
+          <summary>Cosa sono le 2 consulenze e le 2 modifiche gratuite?</summary>
+          <div class="faq-body">Ogni anno: 2 sessioni di consulenza (consigli, analisi, strategie) e 2 interventi sul sito (testi, foto, orari, prezzi) — tutto incluso nel canone €60/anno.</div>
+        </details>
+        <details data-reveal data-delay="5">
+          <summary>Fai anche e-commerce o prenotazioni online?</summary>
+          <div class="faq-body">Per ora siti vetrina con form di contatto — perfetti per hotel, negozi, ristoranti, artigiani. E-commerce su richiesta, preventivo a parte.</div>
+        </details>
+        <details data-reveal>
+          <summary>Sei in regola fiscalmente?</summary>
+          <div class="faq-body">Sì. Partita IVA attiva, emetto fattura regolare per ogni servizio.</div>
+        </details>
+        <details data-reveal>
+          <summary>Perché così economico rispetto alle agenzie?</summary>
+          <div class="faq-body">Lavoro da solo, nessuna struttura aziendale da mantenere. Uso strumenti moderni. Il risparmio lo giro a te.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer data-reveal>
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Left: WhatsApp CTA -->
+        <div>
+          <a class="footer-wa-btn" href="https://wa.me/393520567569" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+            Scrivici su WhatsApp
+          </a>
+          <p class="footer-sub" style="margin-top:.6rem">Rispondo entro poche ore</p>
+        </div>
+
+        <!-- Center: info -->
+        <div>
+          <div class="foot-logo">montagna.web</div>
+          <p class="footer-sub">Siti web professionali · Valtellina &amp; Lombardia</p>
+          <div class="foot-contacts">
+            <a href="mailto:montagna.siti@gmail.com">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              montagna.siti@gmail.com
+            </a>
+            <a href="tel:+393520567569">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.38 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              +39 352 056 7569
+            </a>
+          </div>
+          <p class="footer-copy">© <span id="yr"></span> Montagna Web — Tutti i diritti riservati</p>
+        </div>
+
+        <!-- Right: Jack face -->
+        <div class="footer-face-col">
+          <img src="assets/Jack face.png" alt="Andrea, Montagna Web" class="footer-face" />
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /main-page -->
+
+<!-- ══ CHAT MODAL ══════════════════════════════════════════ -->
+<div id="flow-page" role="dialog" aria-label="Chatta con Andrea" aria-modal="true">
+  <div class="chat-card">
+
+    <div class="flow-nav">
+      <button class="flow-back" onclick="closeFlow()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+        </svg>
+        Torna al sito
+      </button>
+      <button class="flow-logo" onclick="closeFlow()">montagna.web</button>
+    </div>
+
+    <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
+    <div class="chat-input-area" id="chat-input-area"></div>
+
+  </div>
+</div>
+
+<!-- ══ WHATSAPP FLOAT ══════════════════════════════════════ -->
+<a class="wa" href="https://wa.me/393520567569" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
+
+<script>
+/* ════ UTILITY ═════════════════════════════════════════════ */
+document.getElementById('yr').textContent = new Date().getFullYear();
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+/* ════ SCROLL REVEAL ════════════════════════════════════════ */
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('revealed'); revealObs.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('[data-reveal]').forEach(el => revealObs.observe(el));
+
+/* ════ STEPS CAROUSEL AUTO-SCROLL ══════════════════════════ */
+(function initCarousel() {
+  const track = document.querySelector('.steps');
+  if (!track) return;
+  let timer, isDragging = false;
+
+  function isMobile() { return window.innerWidth <= 900; }
+
+  function autoAdvance() {
+    if (!isMobile() || isDragging) return;
+    const items = track.querySelectorAll('.step');
+    if (!items.length) return;
+    const gap = 16;
+    const itemW = items[0].offsetWidth + gap;
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    if (track.scrollLeft >= maxScroll - 4) {
+      track.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      track.scrollBy({ left: itemW, behavior: 'smooth' });
+    }
+  }
+
+  function start() { if (isMobile()) timer = setInterval(autoAdvance, 3200); }
+  function stop()  { clearInterval(timer); }
+  function restart() { stop(); setTimeout(start, 4000); }
+
+  track.addEventListener('touchstart', () => { isDragging = true; restart(); }, { passive: true });
+  track.addEventListener('touchend',   () => { isDragging = false; }, { passive: true });
+  track.addEventListener('mousedown',  () => { isDragging = true; restart(); });
+  track.addEventListener('mouseup',    () => { isDragging = false; });
+  window.addEventListener('resize', () => { stop(); start(); });
+  start();
+})();
+
+/* ════ COOKIE CONSENT ═══════════════════════════════════════ */
+function initCookies() {
+  const c = localStorage.getItem('mw-cookie');
+  if (!c) document.getElementById('cookie-banner').style.display = 'block';
+  else if (c === 'yes') loadAnalytics();
+}
+function acceptCookies() {
+  localStorage.setItem('mw-cookie','yes');
+  document.getElementById('cookie-banner').style.display = 'none';
+  loadAnalytics();
+}
+function rejectCookies() {
+  localStorage.setItem('mw-cookie','no');
+  document.getElementById('cookie-banner').style.display = 'none';
+}
+function loadAnalytics() {
+  /* GoatCounter — privacy-friendly, GDPR ok, no personal data.
+     Crea account su goatcounter.com e sostituisci "montagnaWeb" con il tuo slug. */
+  if (document.querySelector('[data-goatcounter]')) return;
+  const s = document.createElement('script');
+  s.dataset.goatcounter = 'https://montagnaWeb.goatcounter.com/count';
+  s.src = '//gc.zgo.at/count.js'; s.async = true;
+  document.head.appendChild(s);
+}
+
+/* ════ CHAT — CONVERSATION ══════════════════════════════════ */
+const STEPS = [
+  {
+    id:'intro',
+    msg:`Ciao! Sono <strong>Andrea</strong> 👋<br>Non un'agenzia, non un bot — una persona reale che fa siti web in Valtellina.<br><br>Sei qui perché vuoi una presenza online che funziona davvero, senza spendere un capitale. Sei nel posto giusto.`,
+    input:{ type:'start', label:'Iniziamo →' }, next:'tipologia'
+  },
+  {
+    id:'tipologia',
+    msg:'Che tipo di attività hai?',
+    input:{
+      type:'opts', key:'tipologia',
+      opts:[
+        {e:'🏨',l:'Hotel / B&B'},{e:'🍽️',l:'Ristorante / Bar'},
+        {e:'🛍️',l:'Negozio / Boutique'},{e:'🔧',l:'Artigiano / Pro'},
+        {l:'Altro',full:true}
+      ]
+    }, next:'hasSito'
+  },
+  {
+    id:'hasSito',
+    msg:'Hai già un sito web?',
+    input:{
+      type:'opts', key:'hasSito',
+      opts:[{l:"Sì, ce l'ho già"},{l:'No, partiamo da zero'}]
+    },
+    next: v => v === "Sì, ce l'ho già" ? 'sitoUrl' : 'tipoSito'
+  },
+  {
+    id:'sitoUrl',
+    msg:'Puoi condividere il link del tuo sito attuale? Così do un\'occhiata prima. 🔍',
+    input:{ type:'text', key:'sitoUrl', placeholder:'es. www.ilmiosito.it', ac:'url' },
+    next:'tipoSito'
+  },
+  {
+    id:'tipoSito',
+    msg:'Che tipo di sito hai in mente?',
+    input:{
+      type:'opts', key:'tipoSito',
+      opts:[
+        {e:'📄',l:'Sito vetrina'},{e:'📅',l:'Con prenotazioni'},
+        {e:'🛒',l:'E-commerce'},{e:'🤷',l:'Non ho idea ancora'}
+      ]
+    }, next:'contact'
+  },
+  {
+    id:'contact',
+    msg:'Perfetto! Come ti chiami e come ti contatto?',
+    input:{ type:'contact' }, next:'done'
+  },
+  { id:'done', msg:null, input:{ type:'done' } }
+];
+
+/* ════ CHAT — STATE ═════════════════════════════════════════ */
+let chatData = {}, selOpt = null;
+
+function openFlow() {
+  chatData = {}; selOpt = null;
+  document.getElementById('chat-messages').innerHTML = '';
+  document.getElementById('chat-input-area').innerHTML = '';
+  document.getElementById('flow-page').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => runStep('intro'), 100);
+}
+function closeFlow() {
+  document.getElementById('flow-page').classList.remove('open');
+  document.body.style.overflow = '';
+}
+/* Close on overlay click (outside card) */
+document.getElementById('flow-page').addEventListener('click', e => {
+  if (e.target === document.getElementById('flow-page')) closeFlow();
+});
+/* Close on Escape */
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeFlow(); });
+
+/* ════ CHAT — ENGINE ════════════════════════════════════════ */
+function runStep(id) {
+  const step = STEPS.find(s => s.id === id);
+  if (!step) return;
+  if (id === 'done') { showDone(); return; }
+
+  showTyping();
+  setTimeout(() => {
+    hideTyping();
+    appendJack(step.msg);
+    setTimeout(() => {
+      if (step.input.type === 'opts') appendOpts(step);
+      renderBottom(step);
+    }, 280);
+  }, 960);
+}
+
+function scrollDown() {
+  const el = document.getElementById('chat-messages');
+  requestAnimationFrame(() => el.scrollTop = el.scrollHeight);
+}
+
+function showTyping() {
+  const msgs = document.getElementById('chat-messages');
+  const d = document.createElement('div');
+  d.className = 'chat-msg jack'; d.id = 'typing-ind';
+  d.innerHTML = `<img src="assets/Jack face.png" alt="Andrea" class="chat-avatar"/>
+    <div class="chat-bubble jack-bubble chat-typing"><span></span><span></span><span></span></div>`;
+  msgs.appendChild(d); scrollDown();
+}
+function hideTyping() { document.getElementById('typing-ind')?.remove(); }
+
+function appendJack(html) {
+  const msgs = document.getElementById('chat-messages');
+  const d = document.createElement('div');
+  d.className = 'chat-msg jack';
+  d.innerHTML = `<img src="assets/Jack face.png" alt="Andrea" class="chat-avatar"/>
+    <div class="chat-bubble jack-bubble">${html}</div>`;
+  msgs.appendChild(d); scrollDown();
+}
+function appendUser(text) {
+  const msgs = document.getElementById('chat-messages');
+  const d = document.createElement('div');
+  d.className = 'chat-msg user';
+  d.innerHTML = `<div class="chat-bubble user-bubble">${esc(text)}</div>`;
+  msgs.appendChild(d); scrollDown();
+}
+
+function appendOpts(step) {
+  const msgs = document.getElementById('chat-messages');
+  const wrap = document.createElement('div');
+  wrap.className = 'chat-opts-wrap'; wrap.id = `opts-${step.id}`;
+  const grid = document.createElement('div');
+  grid.className = 'chat-opts-grid';
+  step.input.opts.forEach(o => {
+    const btn = document.createElement('button');
+    btn.className = 'chat-opt' + (o.full ? ' full-col' : '');
+    btn.textContent = o.e ? `${o.e} ${o.l}` : o.l;
+    btn.onclick = () => pickOpt(step, o.l, btn);
+    grid.appendChild(btn);
+  });
+  wrap.appendChild(grid); msgs.appendChild(wrap); scrollDown();
+}
+
+function renderBottom(step) {
+  const area = document.getElementById('chat-input-area');
+  if (step.input.type === 'start') {
+    area.innerHTML = `<div class="chat-input-row">
+      <button class="chat-send-btn" onclick="doStart('${step.id}')">${esc(step.input.label)}</button></div>`;
+  } else if (step.input.type === 'opts') {
+    area.innerHTML = `<div class="chat-input-row">
+      <button class="chat-send-btn" id="conf-btn" disabled onclick="confirmOpt('${step.id}')">Avanti →</button></div>`;
+  } else if (step.input.type === 'text') {
+    area.innerHTML = `<div class="chat-input-row">
+      <input type="text" class="chat-text-input" id="text-inp"
+        placeholder="${esc(step.input.placeholder||'')}" autocomplete="${step.input.ac||'off'}"/>
+      <button class="chat-send-btn" onclick="doText('${step.id}','${step.input.key}')">Avanti →</button></div>`;
+    setTimeout(() => {
+      const inp = document.getElementById('text-inp');
+      inp?.focus();
+      inp?.addEventListener('keydown', e => { if (e.key==='Enter') doText(step.id, step.input.key); });
+    }, 100);
+  } else if (step.input.type === 'contact') {
+    area.innerHTML = `<div class="chat-contact-inputs">
+      <input type="text" class="chat-text-input" id="inp-nome" placeholder="Il tuo nome" autocomplete="name"/>
+      <input type="text" class="chat-text-input" id="inp-cont" placeholder="Email / WhatsApp" autocomplete="email"/>
+    </div>
+    <div class="chat-input-row" style="margin-top:.45rem">
+      <button class="chat-send-btn" onclick="doSend()">Invia →</button></div>`;
+    setTimeout(() => document.getElementById('inp-nome')?.focus(), 100);
+  } else if (step.input.type === 'done') {
+    area.innerHTML = `<div class="chat-input-row">
+      <button class="chat-send-btn back-style" onclick="closeFlow()">← Torna al sito</button></div>`;
+  }
+}
+
+/* ─── Interaction handlers ─── */
+function pickOpt(step, val, btn) {
+  document.getElementById(`opts-${step.id}`)?.querySelectorAll('.chat-opt').forEach(o=>o.classList.remove('sel'));
+  btn.classList.add('sel');
+  selOpt = val;
+  chatData[step.input.key] = val;
+  const cb = document.getElementById('conf-btn');
+  if (cb) cb.disabled = false;
+}
+function confirmOpt(stepId) {
+  if (!selOpt) return;
+  const step = STEPS.find(s=>s.id===stepId);
+  const val = selOpt; selOpt = null;
+  document.getElementById(`opts-${stepId}`)?.remove();
+  appendUser(val);
+  document.getElementById('chat-input-area').innerHTML = '';
+  const next = typeof step.next==='function' ? step.next(val) : step.next;
+  setTimeout(() => runStep(next), 480);
+}
+function doStart(stepId) {
+  const step = STEPS.find(s=>s.id===stepId);
+  document.getElementById('chat-input-area').innerHTML = '';
+  setTimeout(() => runStep(step.next), 220);
+}
+function doText(stepId, key) {
+  const inp = document.getElementById('text-inp'); if (!inp) return;
+  const val = inp.value.trim(); if (!val) { inp.focus(); return; }
+  chatData[key] = val;
+  appendUser(val);
+  document.getElementById('chat-input-area').innerHTML = '';
+  const step = STEPS.find(s=>s.id===stepId);
+  const next = typeof step.next==='function' ? step.next(val) : step.next;
+  setTimeout(() => runStep(next), 480);
+}
+function doSend() {
+  const nome    = document.getElementById('inp-nome')?.value.trim();
+  const contact = document.getElementById('inp-cont')?.value.trim();
+  if (!nome)    { document.getElementById('inp-nome')?.focus(); return; }
+  if (!contact) { document.getElementById('inp-cont')?.focus(); return; }
+  chatData.nome = nome; chatData.contact = contact;
+  appendUser(`${nome} · ${contact}`);
+  document.getElementById('chat-input-area').innerHTML = '';
+
+  const msg =
+    `Ciao Andrea!\n\n` +
+    `Nome: ${nome}\n` +
+    `Attività: ${chatData.tipologia||'n.d.'}\n` +
+    `Ha già un sito: ${chatData.hasSito||'n.d.'}\n` +
+    (chatData.sitoUrl ? `Sito attuale: ${chatData.sitoUrl}\n` : '') +
+    `Tipo sito: ${chatData.tipoSito||'n.d.'}\n` +
+    `Contatto: ${contact}\n\n` +
+    `Dal sito montagna.web`;
+
+  const isEmail = contact.includes('@');
+  if (!isEmail) {
+    window.open('https://wa.me/393520567569?text='+encodeURIComponent(msg),'_blank');
+  } else {
+    window.location.href = 'mailto:montagna.siti@gmail.com?subject='+encodeURIComponent('Richiesta da '+nome)+'&body='+encodeURIComponent(msg);
+  }
+  setTimeout(() => runStep('done'), 600);
+}
+function showDone() {
+  const msgs = document.getElementById('chat-messages');
+  const d = document.createElement('div');
+  d.className = 'chat-done';
+  d.innerHTML = `<div class="done-icon">🎉</div><h3>Messaggio inviato!</h3><p>Ti rispondo entro 24 ore. A presto!</p>`;
+  msgs.appendChild(d); scrollDown();
+  document.getElementById('chat-input-area').innerHTML =
+    `<div class="chat-input-row"><button class="chat-send-btn back-style" onclick="closeFlow()">← Torna al sito</button></div>`;
+}
+
+/* ════ INIT ═════════════════════════════════════════════════ */
+initCookies();
+</script>
+</body>
+</html>
