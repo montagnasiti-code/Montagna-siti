@@ -134,7 +134,7 @@
     .btn-secondary:hover { border-color: var(--brown); color: var(--brown); }
 
     /* ── HERO ── */
-    .hero { padding: 4rem 0 0; position: relative; overflow: hidden; }
+    .hero { padding: 2.5rem 0 0; position: relative; overflow: hidden; }
     .hero-inner {
       display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
       padding-bottom: 2rem;
@@ -168,13 +168,13 @@
     .hero-jack {
       width: 170px;           /* ← REGOLA DIMENSIONE */
       position: absolute;
-      bottom: -50px;          /* ← REGOLA POSIZIONE VERTICALE */
+      bottom: -30px;          /* ← REGOLA POSIZIONE VERTICALE (era -50px) */
       z-index: 10;
       filter: drop-shadow(0 8px 24px rgba(0,0,0,.10));
       transition: filter .3s;
     }
     #problema {
-      padding-top: 90px;      /* ← REGOLA PADDING (≈ row-height − |bottom|) */
+      padding-top: 70px;      /* ← REGOLA PADDING (≈ row-height − |bottom|) */
       padding-bottom: 5rem;
     }
 
@@ -311,10 +311,11 @@
     .footer-wa-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
 
     .footer-face {
-      width: 90px; height: 90px;
-      object-fit: cover;
-      border-radius: 0;           /* no circle, show as-is */
+      width: 110px; height: auto;
+      object-fit: contain;
+      border-radius: 0;
       mix-blend-mode: multiply;
+      display: block; margin: 0 auto;
     }
 
     /* ── WHATSAPP FLOAT ── */
@@ -325,10 +326,11 @@
       display: flex; align-items: center; justify-content: center;
       text-decoration: none;
       box-shadow: 0 4px 16px rgba(181,101,29,.4);
-      transition: transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s;
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s, opacity .35s ease, scale .35s ease;
     }
     .wa:hover { transform: scale(1.12); box-shadow: 0 6px 24px rgba(181,101,29,.5); }
     .wa svg { width: 28px; height: 28px; }
+    .wa.wa-hidden { opacity: 0; transform: scale(0.6) !important; pointer-events: none; }
 
     /* ── COOKIE BANNER ── */
     #cookie-banner {
@@ -445,8 +447,17 @@
     .chat-avatar {
       width: 52px; height: 52px;
       flex-shrink: 0; object-fit: contain;
-      border-radius: 0;       /* no circle */
+      border-radius: 0;
       mix-blend-mode: multiply;
+      visibility: hidden;   /* hidden by default; JS shows only latest */
+    }
+    .chat-avatar.active-av {
+      visibility: visible;
+      animation: jackFloat 3.8s ease-in-out infinite;
+    }
+    @keyframes jackFloat {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-5px); }
     }
 
     .chat-bubble { padding: .8rem 1.05rem; border-radius: 1rem; font-size: .96rem; font-weight: 600; line-height: 1.65; }
@@ -959,13 +970,26 @@ function scrollDown() {
   requestAnimationFrame(() => el.scrollTop = el.scrollHeight);
 }
 
+function setActiveAvatar(el) {
+  /* hide all avatars, mark only the given element's as active */
+  document.querySelectorAll('.chat-msg.jack .chat-avatar').forEach(av => av.classList.remove('active-av'));
+  if (el) el.classList.add('active-av');
+}
+
 function showTyping() {
   const msgs = document.getElementById('chat-messages');
   const d = document.createElement('div');
   d.className = 'chat-msg jack'; d.id = 'typing-ind';
-  d.innerHTML = `<img src="assets/Jack face.png" alt="Andrea" class="chat-avatar"/>
-    <div class="chat-bubble jack-bubble chat-typing"><span></span><span></span><span></span></div>`;
-  msgs.appendChild(d); scrollDown();
+  const av = document.createElement('img');
+  av.src = 'assets/Jack face.png'; av.alt = 'Andrea'; av.className = 'chat-avatar';
+  d.appendChild(av);
+  const bubble = document.createElement('div');
+  bubble.className = 'chat-bubble jack-bubble chat-typing';
+  bubble.innerHTML = '<span></span><span></span><span></span>';
+  d.appendChild(bubble);
+  msgs.appendChild(d);
+  setActiveAvatar(av);
+  scrollDown();
 }
 function hideTyping() { document.getElementById('typing-ind')?.remove(); }
 
@@ -973,9 +997,16 @@ function appendJack(html) {
   const msgs = document.getElementById('chat-messages');
   const d = document.createElement('div');
   d.className = 'chat-msg jack';
-  d.innerHTML = `<img src="assets/Jack face.png" alt="Andrea" class="chat-avatar"/>
-    <div class="chat-bubble jack-bubble">${html}</div>`;
-  msgs.appendChild(d); scrollDown();
+  const av = document.createElement('img');
+  av.src = 'assets/Jack face.png'; av.alt = 'Andrea'; av.className = 'chat-avatar';
+  d.appendChild(av);
+  const bubble = document.createElement('div');
+  bubble.className = 'chat-bubble jack-bubble';
+  bubble.innerHTML = html;
+  d.appendChild(bubble);
+  msgs.appendChild(d);
+  setActiveAvatar(av);
+  scrollDown();
 }
 function appendUser(text) {
   const msgs = document.getElementById('chat-messages');
@@ -1067,32 +1098,24 @@ function doText(stepId, key) {
   const next = typeof step.next==='function' ? step.next(val) : step.next;
   setTimeout(() => runStep(next), 480);
 }
-function doSend() {
+async function doSend() {
   const nome    = document.getElementById('inp-nome')?.value.trim();
   const contact = document.getElementById('inp-cont')?.value.trim();
   if (!nome)    { document.getElementById('inp-nome')?.focus(); return; }
   if (!contact) { document.getElementById('inp-cont')?.focus(); return; }
+
+  /* disable button while sending */
+  const btn = document.querySelector('#chat-input-area .chat-send-btn');
+  if (btn) { btn.disabled = true; btn.textContent = 'Invio…'; }
+
   chatData.nome = nome; chatData.contact = contact;
   appendUser(`${nome} · ${contact}`);
   document.getElementById('chat-input-area').innerHTML = '';
 
-  const msg =
-    `Ciao Andrea!\n\n` +
-    `Nome: ${nome}\n` +
-    `Attività: ${chatData.tipologia||'n.d.'}\n` +
-    `Ha già un sito: ${chatData.hasSito||'n.d.'}\n` +
-    (chatData.sitoUrl ? `Sito attuale: ${chatData.sitoUrl}\n` : '') +
-    `Tipo sito: ${chatData.tipoSito||'n.d.'}\n` +
-    `Contatto: ${contact}\n\n` +
-    `Dal sito montagna.web`;
+  /* send email silently — no new tab for the client */
+  await sendAutoEmail(chatData);
 
-  const isEmail = contact.includes('@');
-  if (!isEmail) {
-    window.open('https://wa.me/393520567569?text='+encodeURIComponent(msg),'_blank');
-  } else {
-    window.location.href = 'mailto:montagna.siti@gmail.com?subject='+encodeURIComponent('Richiesta da '+nome)+'&body='+encodeURIComponent(msg);
-  }
-  setTimeout(() => runStep('done'), 600);
+  setTimeout(() => runStep('done'), 400);
 }
 function showDone() {
   const msgs = document.getElementById('chat-messages');
@@ -1102,6 +1125,54 @@ function showDone() {
   msgs.appendChild(d); scrollDown();
   document.getElementById('chat-input-area').innerHTML =
     `<div class="chat-input-row"><button class="chat-send-btn back-style" onclick="closeFlow()">← Torna al sito</button></div>`;
+}
+
+/* ════ WHATSAPP FLOAT — hide when footer visible ════════════ */
+(function() {
+  const waBtn = document.querySelector('.wa');
+  const footer = document.querySelector('footer');
+  if (!waBtn || !footer) return;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) waBtn.classList.add('wa-hidden');
+      else                  waBtn.classList.remove('wa-hidden');
+    });
+  }, { threshold: 0.15 });
+  obs.observe(footer);
+})();
+
+/* ════ WEB3FORMS AUTO EMAIL ═════════════════════════════════
+   Setup (una volta sola):
+   1. Vai su https://web3forms.com
+   2. Inserisci "montagna.siti@gmail.com" → crea la chiave
+   3. Sostituisci SOSTITUISCI_CON_TUA_CHIAVE qui sotto
+   ══════════════════════════════════════════════════════════ */
+const W3F_KEY = 'SOSTITUISCI_CON_TUA_CHIAVE';
+
+async function sendAutoEmail(data) {
+  if (W3F_KEY === 'SOSTITUISCI_CON_TUA_CHIAVE') {
+    console.warn('Web3Forms: chiave non configurata. Vai su web3forms.com.');
+    return;
+  }
+  try {
+    await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: W3F_KEY,
+        subject: `🏔️ Nuova richiesta — ${data.nome} (${data.tipologia||'n.d.'})`,
+        from_name: 'Montagna Web – sito',
+        message:
+          `Nome: ${data.nome}\n` +
+          `Attività: ${data.tipologia||'n.d.'}\n` +
+          `Ha già un sito: ${data.hasSito||'n.d.'}\n` +
+          (data.sitoUrl ? `Sito attuale: ${data.sitoUrl}\n` : '') +
+          `Tipo sito: ${data.tipoSito||'n.d.'}\n` +
+          `Contatto: ${data.contact}`,
+        botcheck: ''
+      })
+    });
+  } catch(e) { console.warn('Invio email fallito:', e); }
 }
 
 /* ════ INIT ═════════════════════════════════════════════════ */
