@@ -46,13 +46,14 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
       font-family: 'Nunito', sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
+      touch-action: pan-y;
     }
 
     .container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
@@ -141,7 +142,7 @@
     }
     @media (max-width: 700px) {
       .hero-inner { grid-template-columns: 1fr; }
-      .hero-right  { order: -1; text-align: center; }
+      .hero-right  { display: none; }
     }
 
     .hero-left { display: flex; flex-direction: column; gap: 1.5rem; }
@@ -231,6 +232,8 @@
         padding-bottom: 1.25rem;
         scrollbar-width: none;
         cursor: grab;
+        will-change: scroll-position;
+        contain: layout style;
       }
       .steps:active { cursor: grabbing; }
       .steps::-webkit-scrollbar { display: none; }
@@ -239,6 +242,12 @@
         min-width: min(72vw, 250px);
         flex-shrink: 0;
         padding: 1.5rem;
+      }
+      /* disable reveal animation inside carousel — cards must be visible immediately */
+      .steps [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
       }
     }
 
@@ -868,7 +877,7 @@ function loadAnalytics() {
      Crea account su goatcounter.com e sostituisci "montagnaWeb" con il tuo slug. */
   if (document.querySelector('[data-goatcounter]')) return;
   const s = document.createElement('script');
-  s.dataset.goatcounter = 'https://montagnaWeb.goatcounter.com/count';
+  s.dataset.goatcounter = 'https://andreasitiolowww.goatcounter.com/count';
   s.src = '//gc.zgo.at/count.js'; s.async = true;
   document.head.appendChild(s);
 }
@@ -1147,10 +1156,10 @@ function showDone() {
    2. Inserisci "montagna.siti@gmail.com" → crea la chiave
    3. Sostituisci SOSTITUISCI_CON_TUA_CHIAVE qui sotto
    ══════════════════════════════════════════════════════════ */
-const W3F_KEY = 'SOSTITUISCI_CON_TUA_CHIAVE';
+const W3F_KEY = '251f0fbe-bdc3-4da1-b148-79ffbcea7ce5';
 
 async function sendAutoEmail(data) {
-  if (W3F_KEY === 'SOSTITUISCI_CON_TUA_CHIAVE') {
+  if (!W3F_KEY || W3F_KEY === 'SOSTITUISCI_CON_TUA_CHIAVE') {
     console.warn('Web3Forms: chiave non configurata. Vai su web3forms.com.');
     return;
   }
@@ -1176,6 +1185,11 @@ async function sendAutoEmail(data) {
 }
 
 /* ════ INIT ═════════════════════════════════════════════════ */
+history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
+/* Reset carousel to start on load */
+const stepsEl = document.querySelector('.steps');
+if (stepsEl) stepsEl.scrollLeft = 0;
 initCookies();
 </script>
 </body>
