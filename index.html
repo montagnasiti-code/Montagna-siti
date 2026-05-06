@@ -1121,7 +1121,7 @@ async function doSend() {
   appendUser(`${nome} · ${contact}`);
   document.getElementById('chat-input-area').innerHTML = '';
 
-  /* send email silently — no new tab for the client */
+  /* send email to Andrea silently — no new tab for the client */
   await sendAutoEmail(chatData);
 
   setTimeout(() => runStep('done'), 400);
